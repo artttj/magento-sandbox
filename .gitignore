@@ -1,4 +1,11 @@
-app/etc/local.xml 
-media/
-var/cache
-var/session
+app/etc/local.xml
+downloader/.cache
+downloader/cache.cfg
+downloader/connect.cfg
+errors/local.xml
+/var/*
+!/var/.htaccess
+media/tmp/*
+.htaccess
+!*/.htaccess
+media/catalog/product/cache/*
