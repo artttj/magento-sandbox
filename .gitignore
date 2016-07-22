@@ -5,7 +5,7 @@ downloader/connect.cfg
 errors/local.xml
 /var/*
 !/var/.htaccess
-media/tmp/*
+/media/tmp/*
 .htaccess
 !*/.htaccess
-media/catalog/product/cache/*
+/media/catalog/product/cache/*
