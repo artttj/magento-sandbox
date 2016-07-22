@@ -4,5 +4,5 @@ ROOT_DIR=$(dirname "${BUILD_ROOT_DIR}")
 REPO_DIR=$(dirname "${ROOT_DIR}")
 RUNTIME_DIR=$(dirname "${ROOT_DIR}")
 PROJECT_DIR=$(dirname "${ROOT_DIR}")
-
-cp $PROJECT_DIR/data/local.xml $ROOT_DIR/app/etc
+cd ../../
+cp ./data/local.xml $ROOT_DIR/app/etc
