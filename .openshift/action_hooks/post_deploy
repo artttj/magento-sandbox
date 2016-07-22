@@ -1,6 +1,8 @@
 #!/bin/bash
 BUILD_ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ROOT_DIR=$(dirname "${BUILD_ROOT_DIR}")
-PROJECTS_DIR=$(dirname "${ROOT_DIR}")
+REPO_DIR=$(dirname "${ROOT_DIR}")
+RUNTIME_DIR=$(dirname "${ROOT_DIR}")
+PROJECT_DIR=$(dirname "${ROOT_DIR}")
 
-cp $PROJECTS_DIR/data/local.xml $ROOT_DIR/app/etc
+cp $PROJECT_DIR/data/local.xml $ROOT_DIR/app/etc
