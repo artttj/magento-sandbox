@@ -9,3 +9,4 @@ errors/local.xml
 .htaccess
 !*/.htaccess
 /media/catalog/product/cache/*
+/media
