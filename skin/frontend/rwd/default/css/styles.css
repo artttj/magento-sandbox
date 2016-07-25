@@ -3248,7 +3248,7 @@ body {
   padding: 10px;
 }
 .logo img {
-  max-width: 100%;
+  max-width: 87px;
 }
 .logo .small {
   display: block;
@@ -3263,7 +3263,7 @@ body {
 
 @media only screen and (min-width: 771px) {
   .logo {
-    max-width: 300px;
+    max-width: 450px;
     min-height: 90px;
   }
   .logo .small {
