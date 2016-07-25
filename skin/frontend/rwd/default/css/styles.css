@@ -3249,6 +3249,7 @@ body {
 }
 .logo img {
   max-width: 87px;
+  float: left;
 }
 .logo .small {
   display: block;
