@@ -3249,7 +3249,7 @@ body {
 }
 .logo img {
   max-width: 87px;
-  float: left;
+  float: left;Fix
 }
 .logo .small {
   display: block;
@@ -3261,7 +3261,10 @@ body {
 .logo:hover {
   opacity: 0.8;
 }
-
+.caption {
+    float: left;
+    margin: 20px;
+}
 @media only screen and (min-width: 771px) {
   .logo {
     max-width: 450px;
