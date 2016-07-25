@@ -7,4 +7,3 @@ errors/local.xml
 !/var/.htaccess
 .htaccess
 !*/.htaccess
-/media/*
