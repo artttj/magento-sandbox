@@ -2,3 +2,4 @@
 
 cp $OPENSHIFT_DATA_DIR/local.xml $OPENSHIFT_REPO_DIR/app/etc
 mv $OPENSHIFT_REPO_DIR/.htaccess.sample $OPENSHIFT_REPO_DIR/.htaccess
+cp -R $OPENSHIFT_DATA_DIR/media $OPENSHIFT_REPO_DIR
