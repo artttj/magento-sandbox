@@ -7,25 +7,25 @@
     </modules>
     <global>
         <models>
-        <a2_giftregistry>
-            <class>A2_Giftregistry_Model</class>
-            <resourceModel>a2_giftregistry_mysql4</resourceModel>
-        </a2_giftregistry>
-        <a2_giftregistry_mysql4>
-            <class>A2_Giftregistry_Model_Mysql4</class>
-            <entities>
-                <entity>
-                    <table>a2_giftregistry_entity</table>
-                </entity>
-                <item>
-                    <table>a2_giftregistry_item</table>
-                </item>
-                <type>
-                    <table>a2_giftregistry_type</table>
-                </type>
-            </entities>
-        </a2_giftregistry_mysql4>
-    </models>
+            <a2_giftregistry>
+                <class>A2_Giftregistry_Model</class>
+                <resourceModel>a2_giftregistry_mysql4</resourceModel>
+            </a2_giftregistry>
+            <a2_giftregistry_mysql4>
+                <class>A2_Giftregistry_Model_Mysql4</class>
+                <entities>
+                    <entity>
+                        <table>a2_giftregistry_entity</table>
+                    </entity>
+                    <item>
+                        <table>a2_giftregistry_item</table>
+                    </item>
+                    <type>
+                        <table>a2_giftregistry_type</table>
+                    </type>
+                </entities>
+            </a2_giftregistry_mysql4>
+        </models>
         <blocks>
             <a2_giftregistry>
                 <class>A2_Giftregistry_Block</class>
