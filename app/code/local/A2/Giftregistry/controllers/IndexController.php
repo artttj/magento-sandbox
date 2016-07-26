@@ -65,7 +65,7 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
             $registry = Mage::getModel('a2_giftregistry/entity');
             $customer = Mage::getSingleton('customer/session')->getCustomer();
 
-            if($this->getRequest()->getPosts() && !empty($data) )
+            if($this->getRequest()->getPost() && !empty($data) )
             {
                 $registry->load($data['registry_id']);
                 if($registry){
