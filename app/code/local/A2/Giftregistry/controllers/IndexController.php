@@ -39,9 +39,24 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
     }
     public function newPostAction()
     {
-        $this->loadLayout();
-        $this->renderLayout();
-        return $this;
+        try {
+            $data = $this->getRequest()->getParams();
+            $registry = Mage::getModel('a2_giftregistry/entity');
+            $customer = Mage::getSingleton('customer/session')->getCustomer();
+            if ($this->getRequest()->getPost() && !empty($data)) {
+                $registry->updateRegistryData($customer, data);
+                $registry->save();
+                $successMessage = Mage::helper('a2_giftregistry')->__('Registry successfully created');
+                Mage::getSingleton('core/session')->addSuccess($successMessage);
+            } else {
+                throw new Exception("Wrong data provided", 1);
+                
+            }
+
+        } catch (Mage_Core_Exception $e) {
+            Mage::getSingleton('core/session')->addError($e->getMessage());
+            $this->redirect('*/*/');
+        }
     }
     public function editPostAction()
     {
