@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <A2_Giftregistry>
+        <A2_giftregistry>
             <version>0.1.0</version>
-        </A2_Giftregistry>
+        </A2_giftregistry>
     </modules>
     <global>
         <models>
             <a2_giftregistry>
-                <class>A2_Giftregistry_Model</class>
+                <class>A2_giftregistry_Model</class>
                 <resourceModel>a2_giftregistry_mysql4</resourceModel>
             </a2_giftregistry>
             <a2_giftregistry_mysql4>
-                <class>A2_Giftregistry_Model_Mysql4</class>
+                <class>A2_giftregistry_Model_Mysql4</class>
                 <entities>
                     <entity>
                         <table>a2_giftregistry_entity</table>
@@ -28,19 +28,19 @@
         </models>
         <blocks>
             <a2_giftregistry>
-                <class>A2_Giftregistry_Block</class>
+                <class>A2_giftregistry_Block</class>
             </a2_giftregistry>
         </blocks>
         <helpers>
             <a2_giftregistry>
-                <class>A2_Giftregistry_Helper</class>
+                <class>A2_giftregistry_Helper</class>
             </a2_giftregistry>
         </helpers>
         <resources>
             <a2_giftregistry_setup>
                 <setup>
-                    <module>A2_Giftregistry</module>
-                    <class>A2_Giftregistry_Model_Resource_Setup</class>
+                    <module>A2_giftregistry</module>
+                    <class>A2_giftregistry_Model_Resource_Setup</class>
                 </setup>
                 <connection>
                     <use>core_setup</use>
