@@ -60,8 +60,29 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
     }
     public function editPostAction()
     {
-        $this->loadLayout();
-        $this->renderLayout();
-        return $this;
-    }       
+        try {
+            $data = $this->getRequest()->getParams();
+            $registry = Mage::getModel('a2_giftregistry/entity');
+            $customer = Mage::getSingleton('customer/session')->getCustomer();
+
+            if($this->getRequest()->getPosts() && !empty($data) )
+            {
+                $registry->load($data['registry_id']);
+                if($registry){
+                    $registry->updateRegistryData($customer, $data);
+                    $registry->save();
+                    $successMessage =  Mage::helper('a2_giftregistry')->__('Registry Successfully Saved');
+                    Mage::getSingleton('core/session')->addSuccess($successMessage);
+                }else {
+                    throw new Exception("Invalid Registry Specified");
+                }
+            }else {
+                throw new Exception("Wrong data provided", 1);
+            }
+        } catch (Mage_Core_Exception $e) {
+            Mage::getSingleton('core/session')->addError($e->getMessage());
+            $this->_redirect('*/*/');
+        }
+        $this->_redirect('*/*/');
+    }    
 }
