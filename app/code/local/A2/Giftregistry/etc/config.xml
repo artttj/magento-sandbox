@@ -58,7 +58,14 @@
             </a2_giftregistry_read>
         </resources>
     </global>
-    <frontend>       
+    <frontend>
+        <layout>
+            <updates>
+                <a2_giftregistry module="a2_giftregistry">
+                    <file>a2_giftregistry.xml</file>
+                </a2_giftregistry>
+            </updates>
+        </layout>        
         <routers>
             <a2_giftregistry>
                 <use>standard</use>
