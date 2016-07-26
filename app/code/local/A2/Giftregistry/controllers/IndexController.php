@@ -34,7 +34,7 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
                     throw new Exception("There was a problem deleting the registry");
                 }
             }
-        } catch (Exception $e) {
+        } catch (Mage_Core_Exception $e) {
             Mage::getSingleton('core/session')->addError($e->getMessage());
             $this->_redirect('*/*/');
         }
