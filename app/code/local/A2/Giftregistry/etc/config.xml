@@ -58,7 +58,7 @@
             </a2_giftregistry_read>
         </resources>
     </global>
-    <frontend>
+    <frontend>       
         <routers>
             <a2_giftregistry>
                 <use>standard</use>
