@@ -100,5 +100,5 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
         }
         $this->_redirect('*/*/');
     }
-    private function() 
+
 }
