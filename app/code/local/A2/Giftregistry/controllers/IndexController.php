@@ -21,10 +21,25 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
 
     public function deleteAction()
     {
-        $this->loadLayout();
-        $this->renderLayout();
-        return $this;
+        try {
+            $registryId = $this->getRequest()->getParam('registry_id');
+            if($registryId){
+                if($registry = Mage::getModel('mdg_giftregistry/entity')->load($registryId)) {
+                    $registry->delete();
+                    $successMessage =  Mage::helper('mdg_giftregistry')->__('Gift registry has been succesfully deleted.');
+                    Mage::getSingleton('core/session')->addSuccess($successMessage);
+                    $this->_redirect('*/*/');
+
+                }else{
+                    throw new Exception("There was a problem deleting the registry");
+                }
+            }
+        } catch (Exception $e) {
+            Mage::getSingleton('core/session')->addError($e->getMessage());
+            $this->_redirect('*/*/');
+        }
     }
+
     public function newAction()
     {
         $this->loadLayout();
@@ -84,5 +99,6 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
             $this->_redirect('*/*/');
         }
         $this->_redirect('*/*/');
-    }    
+    }
+    private function() 
 }
