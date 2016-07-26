@@ -100,7 +100,7 @@ if ($connection->isTableExists($tableName) != true) {
             'type_id',
             $installer->getTable('core/type'),
             'type_id',
-            Varien_Db_Ddl_Table::ACTION_CASCADE, Varien_Db_Ddl_Table::ACTION_CASCADE)            
+            Varien_Db_Ddl_Table::ACTION_CASCADE, Varien_Db_Ddl_Table::ACTION_CASCADE        
             );
     $connection->createTable($table);
 }
