@@ -21,8 +21,8 @@
                         <table>a2_giftregistry_item</table>
                     </entity>
                     <entity>
-                        <table>a2_giftregistry_type</table>
-                    </entity>                               
+                        <table>a2_giftregistry_typeA</table>
+                    </entity>
                 </entities>
             </a2_giftregistry_mysql4>
         </models>
@@ -40,8 +40,22 @@
             <a2_giftregistry_setup>
                 <setup>
                     <module>A2_Giftregistry</module>
+                    <class>A2_Giftregistry_Model_Resource_Setup</class>
                 </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
             </a2_giftregistry_setup>
+            <a2_giftregistry_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </a2_giftregistry_write>
+            <a2_giftregistry_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </a2_giftregistry_read>
         </resources>
     </global>
 </config>
