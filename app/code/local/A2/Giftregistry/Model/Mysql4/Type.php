@@ -6,8 +6,8 @@
 class A2_Giftregistry_Model_Mysql4_Type extends Mage_Core_Model_Mysql4_Abstract
 {
     
-    function __construct()
+    function _construct()
     {
-        $this->init('mdg_giftregistry/type', 'type_id');
+        $this->_init('a2_giftregistry/type', 'type_id');
     }
 }
