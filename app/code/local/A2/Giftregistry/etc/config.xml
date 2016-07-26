@@ -58,4 +58,15 @@
             </a2_giftregistry_read>
         </resources>
     </global>
+    <frontend>
+        <routers>
+            <a2_giftregistry>
+                <use>standard</use>
+                <args>
+                    <module>A2_Giftregistry</module>
+                    <frontName>giftregistry</frontName>
+                </args>
+            </a2_giftregistry>
+        </routers>
+    </frontend>
 </config>
