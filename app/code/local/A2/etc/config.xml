@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <A2_Giftregistry>
+            <version>0.1.0</version>
+        </A2_Giftregistry>
+    </modules>
+    <global>
+        <models>
+            <a2_giftregistry>
+                <class>A2_Giftregistry_Model</class>
+            </a2_giftregistry>
+        </models>
+        <blocks>
+            <a2_giftregistry>
+                <class>A2_Giftregistry_Block</class>
+            </a2_giftregistry>
+        </blocks>
+        <helpers>
+            <a2_giftregistry>
+                <class>A2_Giftregistry_Helper</class>
+            </a2_giftregistry>
+        </helpers>
+        <resources>
+            <a2_giftregistry_setup>
+                <setup>
+                    <module>A2_Giftregistry</module>
+                </setup>
+            </a2_giftregistry_setup>
+        </resources>
+    </global>
+</config>
