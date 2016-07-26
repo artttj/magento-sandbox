@@ -1,0 +1,19 @@
+<layout version="0.1.0">
+     <a2_giftregistry_index_index>
+     </a2_giftregistry_index_index>
+
+     <a2_giftregistry_index_new>
+     </a2_giftregistry_index_new>
+
+     <a2_giftregistry_index_edit>
+     </a2_giftregistry_index_edit>
+
+     <a2_giftregistry_view_view>
+     </a2_giftregistry_view_view>
+
+     <a2_giftregistry_search_index>
+     </a2_giftregistry_search_index>
+     
+     <a2_giftregistry_search_results>
+     </a2_giftregistry_search_results>
+</layout>
