@@ -21,7 +21,7 @@
                         <table>a2_giftregistry_item</table>
                     </entity>
                     <entity>
-                        <table>a2_giftregistry_typeA</table>
+                        <table>a2_giftregistry_type</table>
                     </entity>
                 </entities>
             </a2_giftregistry_mysql4>

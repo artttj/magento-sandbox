@@ -2,7 +2,49 @@
 
 $installer = $this;
 $installer->startSetup();
-$connection = $connection;
+$connection  = $installer->getConnection();
+
+/**
+ * Create Registry Type Table 
+ *
+ *
+ */
+
+$tableName = $installer->getTable('a2_giftregistry/type');
+// Check if the table already exists
+if ($connection->isTableExists($tableName) != true) {
+    $table = $connection
+        ->newTable($installer->getTable('a2_giftregistry/type'))
+        ->addColumn('type_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
+            'identity'  => true,
+            'unsigned'  => true,
+            'nullable'  => false,
+            'primary'   => true,
+        ), 'Type Id')
+        ->addColumn('code', Varien_Db_Ddl_Table::TYPE_TEXT, 25, array(
+            'nullable'  => true,
+        ), 'Code')
+        ->addColumn('name', Varien_Db_Ddl_Table::TYPE_TEXT, 250, array(
+            'nullable'  => true,
+        ), 'name')
+        ->addColumn('description', Varien_Db_Ddl_Table::TYPE_TEXT, 250, array(
+            'nullable'  => true,
+        ), 'Description')
+        ->addColumn('store_id', Varien_Db_Ddl_Table::TYPE_SMALLINT, null,
+            array(
+                'unsigned' => true,
+                'nullable' => false,
+                'default' => '0',
+            ),
+            'Store Id')
+        ->addColumn('is_active', Varien_Db_Ddl_Table::TYPE_SMALLINT, null, array(
+            'unsigned'  => true,
+            'nullable'  => false,
+            'default'   => '1',
+        ), 'Is Active')
+        ->setComment('Magento Developers Guide Type Table');
+    $connection->createTable($table);
+}
 
 $tableName = $installer->getTable('a2_giftregistry/entity');
 if ($connection->isTableExists($tableName) != true) {
@@ -102,49 +144,6 @@ if ($connection->isTableExists($tableName) != true) {
             'type_id',
             Varien_Db_Ddl_Table::ACTION_CASCADE, Varien_Db_Ddl_Table::ACTION_CASCADE        
             );
-    $connection->createTable($table);
-}
-
-
-/**
- * Create Registry Type Table 
- *
- *
- */
-
-$tableName = $installer->getTable('a2_giftregistry/type');
-// Check if the table already exists
-if ($connection->isTableExists($tableName) != true) {
-    $table = $connection
-        ->newTable($installer->getTable('a2_giftregistry/type'))
-        ->addColumn('type_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
-            'identity'  => true,
-            'unsigned'  => true,
-            'nullable'  => false,
-            'primary'   => true,
-        ), 'Type Id')
-        ->addColumn('code', Varien_Db_Ddl_Table::TYPE_TEXT, 25, array(
-            'nullable'  => true,
-        ), 'Code')
-        ->addColumn('name', Varien_Db_Ddl_Table::TYPE_TEXT, 250, array(
-            'nullable'  => true,
-        ), 'name')
-        ->addColumn('description', Varien_Db_Ddl_Table::TYPE_TEXT, 250, array(
-            'nullable'  => true,
-        ), 'Description')
-        ->addColumn('store_id', Varien_Db_Ddl_Table::TYPE_SMALLINT, null,
-            array(
-                'unsigned' => true,
-                'nullable' => false,
-                'default' => '0',
-            ),
-            'Store Id')
-        ->addColumn('is_active', Varien_Db_Ddl_Table::TYPE_SMALLINT, null, array(
-            'unsigned'  => true,
-            'nullable'  => false,
-            'default'   => '1',
-        ), 'Is Active')
-        ->setComment('Magento Developers Guide Type Table');
     $connection->createTable($table);
 }
 /**
