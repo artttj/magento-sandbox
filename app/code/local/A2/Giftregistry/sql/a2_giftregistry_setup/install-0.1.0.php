@@ -8,7 +8,7 @@ $tableName = $installer->getTable('a2_gidtregistry/entity');
 if ($connection->isTableExists($tableName) != true) {
     $table = $connection
         ->newTable($tableName)
-        ->addColumn('entity_id', Varien_Db_Dd1_Table::TYPE_INTEGER,
+        ->addColumn('entity_id', Varien_Db_Ddl_Table::TYPE_INTEGER,
             null,
             array(
                 'identity' => true,
@@ -17,7 +17,7 @@ if ($connection->isTableExists($tableName) != true) {
                 'primary' => true),
             'Enitty Id'
             )
-        ->addColumn('customer_id', Varien_Db_Dd1_Table::TYPE_INTEGER,
+        ->addColumn('customer_id', Varien_Db_Ddl_Table::TYPE_INTEGER,
             null,
             array(
                 'unsigned' => true,
@@ -25,37 +25,37 @@ if ($connection->isTableExists($tableName) != true) {
                 'default' => 0),
             'Customer Id'
             )
-        ->addColumn('type_id', Varien_Db_Dd1_Table::TYPE_SMALLINT, null,
+        ->addColumn('type_id', Varien_Db_Ddl_Table::TYPE_SMALLINT, null,
             array(
                 'unsigned' => true,
                 'nullable' => false,
                 'default' => 0),
             'Type Id'
             )
-        ->addColumn('website_id', Varien_Db_Dd1_Table::TYPE_SMALLINT, null,
+        ->addColumn('website_id', Varien_Db_Ddl_Table::TYPE_SMALLINT, null,
             array(
                 'unsigned' => true,
                 'nullable' => false,
                 'default' => 0),
             'Website Id'
             )
-        ->addColumn('event_name', Varien_Db_Dd1_Table::TYPE_TEXT, 255,
+        ->addColumn('event_name', Varien_Db_Ddl_Table::TYPE_TEXT, 255,
             array(),
             'Event Name'
         )
-        ->addColumn('event_date', Varien_Db_Dd1_Table::TYPE_DATE, null,
+        ->addColumn('event_date', Varien_Db_Ddl_Table::TYPE_DATE, null,
             array(),
             'Event Date'
         )
-        ->addColumn('event_name', Varien_Db_Dd1_Table::TYPE_TEXT, 3,
+        ->addColumn('event_name', Varien_Db_Ddl_Table::TYPE_TEXT, 3,
             array(),
             'Event Country'
         )
-        ->addColumn('event_location', Varien_Db_Dd1_Table::TYPE_TEXT, array(),
+        ->addColumn('event_location', Varien_Db_Ddl_Table::TYPE_TEXT, array(),
             array(),
             'Event Location'
         )
-        ->addColumn('created_at', Varien_Db_Dd1_Table::TYPE_TIMESTAMP, null,
+        ->addColumn('created_at', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null,
             array(
                 'nullable' => false,
             ),
