@@ -4,7 +4,7 @@ $installer = $this;
 $installer->startSetup();
 $connection = $connection;
 
-$tableName = $installer->getTable('a2_gidtregistry/entity');
+$tableName = $installer->getTable('a2_giftregistry/entity');
 if ($connection->isTableExists($tableName) != true) {
     $table = $connection
         ->newTable($tableName)
