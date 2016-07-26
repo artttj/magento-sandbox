@@ -24,9 +24,9 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
         try {
             $registryId = $this->getRequest()->getParam('registry_id');
             if($registryId){
-                if($registry = Mage::getModel('mdg_giftregistry/entity')->load($registryId)) {
+                if($registry = Mage::getModel('a2_giftregistry/entity')->load($registryId)) {
                     $registry->delete();
-                    $successMessage =  Mage::helper('mdg_giftregistry')->__('Gift registry has been succesfully deleted.');
+                    $successMessage =  Mage::helper('a2_giftregistry')->__('Gift registry has been succesfully deleted.');
                     Mage::getSingleton('core/session')->addSuccess($successMessage);
                     $this->_redirect('*/*/');
 
