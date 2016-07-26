@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
      <a2_giftregistry_index_index>
-     <reference name="content">
-        <block name="giftregistry.list" type="a2_giftregistry/list"
-        template="a2/list.phtml" as="giftregistry_list"/>
-     </reference>        
+         <reference name="content">
+            <block name="giftregistry.list" type="a2_giftregistry/list"
+            template="a2/list.phtml" as="giftregistry_list"/>
+         </reference>        
      </a2_giftregistry_index_index>
 
      <a2_giftregistry_index_new>
