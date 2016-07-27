@@ -25,12 +25,13 @@
         $('.js-add-to-gift-registry').on('click', function(event){
             event.preventDefault();
             var checkedRegistry = $('input[name="registry_id"]:checked');
+            var registryIds = $.map(checkedRegistry, function(item){return item.getAttribute('data-id')});
             if(!checkedRegistry.length) return;
             $.ajax({
                 method: 'post',
                 url: '/giftregistry/index/newItem',
                 data: {
-                    registry_id: checkedRegistry.attr('data-id'),
+                    registry_id: registryIds.join(','),
                     product_id: checkedRegistry.attr('data-product-id')
                 },
                 success: function(data) {

@@ -95,12 +95,16 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
             $registry = Mage::getModel('a2_giftregistry/entity');
             $item = Mage::getModel('a2_giftregistry/item');
             $customer = Mage::getSingleton('customer/session')->getCustomer();
-
+            $registryIds = explode(',', $data['registry_id']);
             if ($this->getRequest()->getPost() && !empty($data)) {
-                $item->product_id = $data['product_id'];
-                $item->registry_id = $data['registry_id'];
-                $item->added_at = date('Y-m-d H:i:s', time());
-                $item->save();
+                foreach ($registryIds as $registryId) {
+                    if(empty($item->load($registryId, 'registry_id')->getData())) {
+                        $item->product_id = $data['product_id'];
+                        $item->registry_id = $registryId;
+                        $item->added_at = date('Y-m-d H:i:s', time());
+                        $item->save(); 
+                    }
+                }
                 $success = array('success' => true);
                 $this->getResponse()->setHeader('Content-type', 'application/json');
                 $this->getResponse()->setBody(json_encode($success));
