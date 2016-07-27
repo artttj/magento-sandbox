@@ -7,7 +7,7 @@
     <form action="<?php echo $this->getUrl('giftregistry/index/editPost/') ?>" method="post" id="form-validate">
         <fieldset>
             <?php echo $this->getBlockHtml('formkey')?>
-            <input type="hidden" id="type_id" value="<?php echo $loadedRegistry->getTypeId(); ?>" />
+            <input type="hidden" id="type_id" name="type_id" value="<?php echo $loadedRegistry->getTypeId(); ?>" />
             <ul class="form-list">
                 <li class="field">
                     <label class="giftreg" for="event_name"><?php echo $this->__('Event Name') ?></label>
