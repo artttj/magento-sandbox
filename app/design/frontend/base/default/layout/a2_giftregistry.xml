@@ -3,10 +3,13 @@
      <a2_giftregistry_index_index>
          <reference name="content">
             <block name="giftregistry.list" type="a2_giftregistry/list" template="a2/list.phtml" as="giftregistry_list"/>
-         </reference>        
+         </reference>
      </a2_giftregistry_index_index>
 
      <a2_giftregistry_index_new>
+         <reference name="content">
+            <block name="giftregistry.new" type="a2_giftregistry/new" template="a2/new.phtml" as="giftregistry_new"/>
+         </reference>
      </a2_giftregistry_index_new>
 
      <a2_giftregistry_index_edit>
@@ -17,7 +20,7 @@
 
      <a2_giftregistry_search_index>
      </a2_giftregistry_search_index>
-     
+
      <a2_giftregistry_search_results>
      </a2_giftregistry_search_results>
 </layout>
