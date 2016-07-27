@@ -8,7 +8,7 @@
 
      <a2_giftregistry_index_new>
          <reference name="content">
-            <block name="giftregistry.new" type="a2_giftregistry/new" template="a2/new.phtml" as="giftregistry_new"/>
+            <block name="giftregistry.new" type="core/template" template="a2/new.phtml" as="giftregistry_new"/>
          </reference>
      </a2_giftregistry_index_new>
 
