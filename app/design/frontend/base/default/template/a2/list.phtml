@@ -5,9 +5,6 @@
 <div class="customer-list">
     <?php if(!$_collection->count()): ?>
         <h2><?php echo $this->__('You have no registries.') ?></h2>
-        <a href="<?php echo $this->getUrl('giftregistry/index/new') ?>">
-            <?php echo $this->__('Click Here to create a new Gift Registry') ?>
-        </a>
     <?php else: ?>
         <ul>
             <?php foreach($_collection as $registry): ?>
@@ -30,4 +27,7 @@
             <?php endforeach; ?>
         </ul>
     <?php endif; ?>
+    <a href="<?php echo $this->getUrl('giftregistry/index/new') ?>">
+        <?php echo $this->__('Click Here to create a new Gift Registry') ?>
+    </a>    
 </div>
