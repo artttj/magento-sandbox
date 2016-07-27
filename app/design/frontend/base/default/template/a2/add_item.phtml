@@ -1,6 +1,7 @@
 <?php
     $_collection = $this->getCustomerRegistries();
     $helper = Mage::helper('a2_giftregistry');
+    $productId = $this->getRequest()->getParam('id');
 ?>
 <div class="block-content">
     <?php if(!$_collection->count()): ?>
@@ -10,7 +11,7 @@
             <?php foreach($_collection as $registry): ?>
                 <li>
                     <label>
-                        <input type="radio" data-product-id="<?php echo $this->getRequest()->getParam('id'); ?>" name="registry_id" data-id="<?php echo $registry->getEntityId(); ?>" />&nbsp;<?php echo $registry->getEventName(); ?>
+                        <input type="checkbox" <?php echo $helper->isItemInRegistry($productId, $registry->getEntityId()) ? 'checked' : '' ?> <?php echo $registry->getId(); ?> data-product-id="<?php echo $productId ?>" name="registry_id" data-id="<?php echo $registry->getEntityId(); ?>" />&nbsp;<?php echo $registry->getEventName(); ?>
                     </label>
                 </li>
             <?php endforeach; ?>
