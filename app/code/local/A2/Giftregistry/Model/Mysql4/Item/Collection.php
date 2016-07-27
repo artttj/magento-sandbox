@@ -11,4 +11,4 @@ class A2_Giftregistry_Model_Mysql4_Item_Collection extends Mage_Core_Model_Mysql
         $this->_init('a2_giftregistry/item');
         parent::_construct();
     }
-}A
+}
