@@ -19,6 +19,9 @@
      </a2_giftregistry_index_edit>
 
      <a2_giftregistry_view_view>
+         <reference name="content">
+            <block name="giftregistry.view" type="core/template" template="a2/view.phtml" as="giftregistry_view"/>
+         </reference>                
      </a2_giftregistry_view_view>
 
      <a2_giftregistry_search_index>
