@@ -1,0 +1,44 @@
+<?php
+    $_collection = $this->getCustomerRegistries();
+    $helper = Mage::helper('a2_giftregistry');
+?>
+<div class="block-content">
+    <?php if(!$_collection->count()): ?>
+        <h2><?php echo $this->__('You have no registries.') ?></h2>
+    <?php else: ?>
+        <ul>
+            <?php foreach($_collection as $registry): ?>
+                <li>
+                    <label>
+                        <input type="radio" data-product-id="<?php echo $this->getRequest()->getParam('id'); ?>" name="registry_id" data-id="<?php echo $registry->getEntityId(); ?>" />&nbsp;<?php echo $registry->getEventName(); ?>
+                    </label>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <button class="button js-add-to-gift-registry"><?php echo $this->__('Add to gift registry') ?></button>
+    <?php endif; ?>
+</div>
+<script type="text/javascript">
+    (function() {
+        var $ = jQuery;
+        $('.js-add-to-gift-registry').on('click', function(event){
+            event.preventDefault();
+            var checkedRegistry = $('input[name="registry_id"]:checked');
+            if(!checkedRegistry.length) return;
+            $.ajax({
+                method: 'post',
+                url: '/giftregistry/index/newItem',
+                data: {
+                    registry_id: checkedRegistry.attr('data-id'),
+                    product_id: checkedRegistry.attr('data-product-id')
+                },
+                success: function(data) {
+                    if(data.success) {
+                        alert('Item was successfully added!');
+                    }
+                }
+            });
+        });
+    }());
+
+</script>

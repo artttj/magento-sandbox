@@ -26,7 +26,11 @@
 
      <a2_giftregistry_search_index>
      </a2_giftregistry_search_index>
-
+     <catalog_product_view>
+        <reference name="product.info.addtocart">
+            <block name="giftregistry.add_item" type="a2_giftregistry/list" template="a2/add_item.phtml" as="giftregistry_add_item"/>
+        </reference>
+     </catalog_product_view>
      <a2_giftregistry_search_results>
      </a2_giftregistry_search_results>
 </layout>
