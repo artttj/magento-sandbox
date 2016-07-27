@@ -88,6 +88,26 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
             $this->_redirect('*/*/');
         }
     }
+    public function newItemAction()
+    {
+        try {
+            $data = $this->getRequest()->getParams();
+            $registry = Mage::getModel('a2_giftregistry/entity');
+            $item = Mage::getModel('a2_giftregistry/item');
+            $customer = Mage::getSingleton('customer/session')->getCustomer();
+
+            if ($this->getRequest()->getPost() && !empty($data)) {
+                $item->product_id = $data['product_id'];
+                $item->registry_id = $data['registry_id'];
+                $item->added_at = date('Y-m-d H:i:s', time());
+                $item->save();
+                $success = array('success' => true);
+                $this->getResponse()->setHeader('Content-type', 'application/json');
+                $this->getResponse()->setBody(json_encode($success));
+            }
+        } catch (Mage_Core_Exception $e) {
+        }
+    }
     public function editPostAction()
     {
         try {
