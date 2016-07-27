@@ -9,7 +9,7 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
         if (!Mage::getSingleton('customer/session')->authenticate($this)) {
             $this->getResponse()->setRedirect(Mage::helper('customer')->getLoginUrl());
             $this->setFlag('', self::FLAG_NO_DISPATCH, true);
-        }   
+        }
     }
 
     public function indexAction()
@@ -63,14 +63,15 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
                 $registry->save();
                 $successMessage = Mage::helper('a2_giftregistry')->__('Registry successfully created');
                 Mage::getSingleton('core/session')->addSuccess($successMessage);
+                $this->_redirect('*/*/');
             } else {
                 throw new Exception("Wrong data provided", 1);
-                
+
             }
 
         } catch (Mage_Core_Exception $e) {
             Mage::getSingleton('core/session')->addError($e->getMessage());
-            $this->redirect('*/*/');
+            $this->_redirect('*/*/');
         }
     }
     public function editPostAction()
