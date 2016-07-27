@@ -11,7 +11,11 @@
             <?php foreach($_collection as $registry): ?>
                 <li>
                     <label>
-                        <input type="checkbox" <?php echo $helper->isItemInRegistry($productId, $registry->getEntityId()) ? 'checked' : '' ?> <?php echo $registry->getId(); ?> data-product-id="<?php echo $productId ?>" name="registry_id" data-id="<?php echo $registry->getEntityId(); ?>" />&nbsp;<?php echo $registry->getEventName(); ?>
+                        <?php if($helper->isItemInRegistry($productId, $registry->getEntityId())): ?>
+                            Product in <b><?php echo $registry->getEventName(); ?></b> Gift Registry
+                        <?php else: ?>
+                            <input type="checkbox" <?php echo $registry->getId(); ?> data-product-id="<?php echo $productId ?>" name="registry_id" data-id="<?php echo $registry->getEntityId(); ?>" />&nbsp;<?php echo $registry->getEventName(); ?>                            
+                        <?php endif; ?>
                     </label>
                 </li>
             <?php endforeach; ?>
