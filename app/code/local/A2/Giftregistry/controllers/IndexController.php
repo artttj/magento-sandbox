@@ -73,6 +73,7 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
             $customer = Mage::getSingleton('customer/session')->getCustomer();
             if ($this->getRequest()->getPost() && !empty($data)) {
                 $registry->updateRegistryData($customer, $data);
+                $registry->created_at = date('Y-m-d H:i:s', time());
                 $registry->save();
                 $successMessage = Mage::helper('a2_giftregistry')->__('Registry successfully created');
                 Mage::getSingleton('core/session')->addSuccess($successMessage);
