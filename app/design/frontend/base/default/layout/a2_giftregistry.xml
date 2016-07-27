@@ -15,17 +15,24 @@
      <a2_giftregistry_index_edit>
          <reference name="content">
             <block name="giftregistry.edit" type="core/template" template="a2/edit.phtml" as="giftregistry_edit"/>
-         </reference>        
+         </reference>
      </a2_giftregistry_index_edit>
 
      <a2_giftregistry_view_view>
          <reference name="content">
             <block name="giftregistry.view" type="core/template" template="a2/view.phtml" as="giftregistry_view"/>
-         </reference>                
+            <block name="giftregistry.itemlist" type="a2_giftregistry/itemlist" template="catalog/product/list.phtml" as="giftregistry_itemlist"/>
+         </reference>
      </a2_giftregistry_view_view>
 
      <a2_giftregistry_search_index>
      </a2_giftregistry_search_index>
+
+     <catalog_product_view>
+        <reference name="product.info.addtocart">
+            <block name="giftregistry.add_item" type="a2_giftregistry/list" template="a2/add_item.phtml" as="giftregistry_add_item"/>
+        </reference>
+     </catalog_product_view>
 
      <a2_giftregistry_search_results>
      </a2_giftregistry_search_results>
