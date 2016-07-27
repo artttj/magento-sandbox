@@ -8,15 +8,23 @@
         <h2><?php echo $this->__('You have no registries.') ?></h2>
     <?php else: ?>
         <ul>
+            <?php $count = 0; ?>
             <?php foreach($_collection as $registry): ?>
                 <li>
                     <label>
-                        <input type="checkbox" <?php echo $helper->isItemInRegistry($productId, $registry->getEntityId()) ? 'checked' : '' ?> <?php echo $registry->getId(); ?> data-product-id="<?php echo $productId ?>" name="registry_id" data-id="<?php echo $registry->getEntityId(); ?>" />&nbsp;<?php echo $registry->getEventName(); ?>
+                        <?php if($helper->isItemInRegistry($productId, $registry->getEntityId())): ?>
+                            <?php $count++;  ?>
+                            Product in <b><?php echo $registry->getEventName(); ?></b> Gift Registry
+                        <?php else: ?>
+                            <input type="checkbox" <?php echo $registry->getId(); ?> data-product-id="<?php echo $productId ?>" name="registry_id" data-id="<?php echo $registry->getEntityId(); ?>" />&nbsp;<?php echo $registry->getEventName(); ?>                            
+                        <?php endif; ?>
                     </label>
                 </li>
             <?php endforeach; ?>
         </ul>
-        <button class="button js-add-to-gift-registry"><?php echo $this->__('Add to gift registry') ?></button>
+        <?php if($_collection->count() !== $count): ?>
+            <button class="button js-add-to-gift-registry"><?php echo $this->__('Add to gift registry') ?></button>
+        <?php endif; ?>
     <?php endif; ?>
 </div>
 <script type="text/javascript">
@@ -25,17 +33,18 @@
         $('.js-add-to-gift-registry').on('click', function(event){
             event.preventDefault();
             var checkedRegistry = $('input[name="registry_id"]:checked');
+            var registryIds = $.map(checkedRegistry, function(item){return item.getAttribute('data-id')});
             if(!checkedRegistry.length) return;
             $.ajax({
                 method: 'post',
                 url: '/giftregistry/index/newItem',
                 data: {
-                    registry_id: checkedRegistry.attr('data-id'),
+                    registry_id: registryIds.join(','),
                     product_id: checkedRegistry.attr('data-product-id')
                 },
                 success: function(data) {
                     if(data.success) {
-                        alert('Item was successfully added!');
+                        window.location.reload();
                     }
                 }
             });
