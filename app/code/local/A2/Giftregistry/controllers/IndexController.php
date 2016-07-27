@@ -93,11 +93,11 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
         try {
             $data = $this->getRequest()->getParams();
             $registry = Mage::getModel('a2_giftregistry/entity');
-            $item = Mage::getModel('a2_giftregistry/item');
             $customer = Mage::getSingleton('customer/session')->getCustomer();
             $registryIds = explode(',', $data['registry_id']);
             if ($this->getRequest()->getPost() && !empty($data)) {
                 foreach ($registryIds as $registryId) {
+                    $item = Mage::getModel('a2_giftregistry/item');                    
                     if(empty($item->load($registryId, 'registry_id')->getData())) {
                         $item->product_id = $data['product_id'];
                         $item->registry_id = $registryId;
