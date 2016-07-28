@@ -102,7 +102,7 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
                         $item->getCollection()
                         ->addFieldToFilter('product_id', $data['product_id'])
                         ->addFieldToFilter('registry_id', $registryId)
-                        ->getData())
+                        ->getSize())
                     ) {
                         $item->product_id = $data['product_id'];
                         $item->registry_id = $registryId;
