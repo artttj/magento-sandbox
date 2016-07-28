@@ -1,39 +1,47 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
-     <a2_giftregistry_index_index>
-         <reference name="content">
+    <a2_giftregistry_index_index>
+        <reference name="content">
             <block name="giftregistry.list" type="a2_giftregistry/list" template="a2/list.phtml" as="giftregistry_list"/>
-         </reference>
-     </a2_giftregistry_index_index>
+        </reference>
+    </a2_giftregistry_index_index>
 
-     <a2_giftregistry_index_new>
-         <reference name="content">
+    <a2_giftregistry_index_new>
+        <reference name="content">
             <block name="giftregistry.new" type="core/template" template="a2/new.phtml" as="giftregistry_new"/>
-         </reference>
-     </a2_giftregistry_index_new>
+        </reference>
+    </a2_giftregistry_index_new>
 
-     <a2_giftregistry_index_edit>
-         <reference name="content">
+    <a2_giftregistry_index_edit>
+        <reference name="content">
             <block name="giftregistry.edit" type="core/template" template="a2/edit.phtml" as="giftregistry_edit"/>
-         </reference>
-     </a2_giftregistry_index_edit>
+        </reference>
+    </a2_giftregistry_index_edit>
 
-     <a2_giftregistry_view_view>
-         <reference name="content">
+    <a2_giftregistry_view_view>
+        <reference name="content">
             <block name="giftregistry.view" type="core/template" template="a2/view.phtml" as="giftregistry_view"/>
             <block name="giftregistry.itemlist" type="a2_giftregistry/itemlist" template="catalog/product/list.phtml" as="giftregistry_itemlist"/>
-         </reference>
-     </a2_giftregistry_view_view>
+        </reference>
+    </a2_giftregistry_view_view>
 
-     <a2_giftregistry_search_index>
-     </a2_giftregistry_search_index>
+    <a2_giftregistry_search_index>
+    </a2_giftregistry_search_index>
 
-     <catalog_product_view>
+    <catalog_product_view>
         <reference name="product.info.addtocart">
             <block name="giftregistry.add_item" type="a2_giftregistry/list" template="a2/add_item.phtml" as="giftregistry_add_item"/>
         </reference>
-     </catalog_product_view>
+    </catalog_product_view>
 
-     <a2_giftregistry_search_results>
-     </a2_giftregistry_search_results>
+    <a2_giftregistry_search_results>
+    </a2_giftregistry_search_results>
+    
+    <customer_account>
+        <!-- Mage_Review -->
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="review"><name>a2_giftregistry</name><path>giftregistry/index/index</path><label>My Gift Registries</label></action>
+        </reference>
+    </customer_account>
+
 </layout>

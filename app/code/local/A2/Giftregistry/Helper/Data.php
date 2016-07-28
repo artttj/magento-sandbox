@@ -25,4 +25,12 @@ class A2_Giftregistry_Helper_Data extends Mage_Core_Helper_Abstract {
         return false;
     }
 
+    public function isLoggedIn($registryCustomerId)
+    {
+        $currentCustomer = Mage::getSingleton('customer/session')->getCustomer();
+        if($currentCustomer && $currentCustomer->getId()) {
+            return true;
+        }
+        return false;
+    }
 }
