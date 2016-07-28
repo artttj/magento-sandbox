@@ -21,7 +21,7 @@
     <a2_giftregistry_view_view>
         <reference name="content">
             <block name="giftregistry.view" type="core/template" template="a2/view.phtml" as="giftregistry_view"/>
-            <block name="giftregistry.itemlist" type="a2_giftregistry/itemlist" template="catalog/product/list.phtml" as="giftregistry_itemlist"/>
+            <block name="giftregistry.itemlist" type="a2_giftregistry/itemlist" template="a2/catalog/product/list.phtml" as="giftregistry_itemlist"/>
         </reference>
     </a2_giftregistry_view_view>
 
