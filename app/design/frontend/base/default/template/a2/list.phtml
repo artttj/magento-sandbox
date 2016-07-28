@@ -10,10 +10,9 @@
             <?php foreach($_collection as $registry): ?>
                 <li>
                     <h3><?php echo $registry->getEventName(); ?></h3>
-                    <p><strong><?php echo $this->__('Event Name:') ?> <?php echo $registry->getEventName(); ?></strong></p>
-                    <p><strong><?php echo $this->__('Event Location:') ?> <?php echo $registry->getEventLocation(); ?></strong></p>
-                    <p><strong><?php echo $this->__('Event Country:') ?> <?php echo $registry->getEventCountry(); ?></strong></p>                    
-                    <p><strong><?php echo $this->__('Event Date:') ?> <?php echo $registry->getEventDate(); ?></strong></p>
+                    <p><?php echo $this->__('Event Location:') ?> <?php echo $registry->getEventLocation(); ?></p>
+                    <p><?php echo $this->__('Event Country:') ?> <?php echo $registry->getEventCountry(); ?></p>                    
+                    <p><?php echo $this->__('Event Date:') ?> <?php echo $registry->getEventDate(); ?></p>
                     <a href="<?php echo $this->getUrl('giftregistry/view/view', array('_query' => array('registry_id' => $registry->getEntityId()))) ?>">
                         <?php echo $this->__('View Registry') ?>
                     </a>
@@ -30,7 +29,6 @@
             <?php endforeach; ?>
         </ul>
     <?php endif; ?>
-    <br \>
     <a href="<?php echo $this->getUrl('giftregistry/index/new') ?>">
         <?php echo $this->__('Click Here to create a new Gift Registry') ?>
     </a>    
