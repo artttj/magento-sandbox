@@ -97,13 +97,12 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
             $registryIds = explode(',', $data['registry_id']);
             if ($this->getRequest()->getPost() && !empty($data)) {
                 foreach ($registryIds as $registryId) {
-                    $item = Mage::getModel('a2_giftregistry/item');                    
-                    if(empty(
-                        $item->getCollection()
+                    $item = Mage::getModel('a2_giftregistry/item');
+                    $collectionData = $item->getCollection()
                         ->addFieldToFilter('product_id', $data['product_id'])
                         ->addFieldToFilter('registry_id', $registryId)
-                        ->getSize())
-                    ) {
+                        ->getData();                    
+                    if(empty($collectionData)) {
                         $item->product_id = $data['product_id'];
                         $item->registry_id = $registryId;
                         $item->added_at = date('Y-m-d H:i:s', time());
