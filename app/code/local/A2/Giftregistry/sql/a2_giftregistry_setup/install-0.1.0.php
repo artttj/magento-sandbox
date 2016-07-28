@@ -98,7 +98,7 @@ if ($connection->isTableExists($tableName) != true) {
             array(),
             'Event Date'
         )
-        ->addColumn('event_country', Varien_Db_Ddl_Table::TYPE_TEXT, 3,
+        ->addColumn('event_country', Varien_Db_Ddl_Table::TYPE_TEXT, 255,
             array(),
             'Event Country'
         )
