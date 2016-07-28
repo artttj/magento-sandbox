@@ -12,6 +12,8 @@
                     <h3><?php echo $registry->getEventName(); ?></h3>
                     <p><strong><?php echo $this->__('Event Name:') ?> <?php echo $registry->getEventName(); ?></strong></p>
                     <p><strong><?php echo $this->__('Event Location:') ?> <?php echo $registry->getEventLocation(); ?></strong></p>
+                    <p><strong><?php echo $this->__('Event Country:') ?> <?php echo $registry->getEventCountry(); ?></strong></p>                    
+                    <p><strong><?php echo $this->__('Event Date:') ?> <?php echo $registry->getEventDate(); ?></strong></p>
                     <a href="<?php echo $this->getUrl('giftregistry/view/view', array('_query' => array('registry_id' => $registry->getEntityId()))) ?>">
                         <?php echo $this->__('View Registry') ?>
                     </a>
@@ -24,6 +26,7 @@
                         </a>
                     <?php endif; ?>
                 </li>
+                <li><br></li>
             <?php endforeach; ?>
         </ul>
     <?php endif; ?>
