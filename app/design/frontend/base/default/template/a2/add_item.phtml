@@ -1,4 +1,7 @@
 <?php
+    if(!Mage::getSingleton('customer/session')->isLoggedIn()) {
+        return;
+    }
     $_collection = $this->getCustomerRegistries();
     $helper = Mage::helper('a2_giftregistry');
     $productId = $this->getRequest()->getParam('id');
