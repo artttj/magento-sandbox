@@ -40,6 +40,29 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
         }
     }
 
+    public function deleteItemAction()
+    {
+        try {
+            $params = $this->getRequest()->getParams();
+            $registryId = $params['registry_id'];
+            $productId = $params['product_id'];
+            $item = Mage::getModel('a2_giftregistry/item');        
+            $collectionItem = $item->getCollection()
+                ->addFieldToFilter('product_id', $productId)
+                ->addFieldToFilter('registry_id', $registryId)
+                ->getFirstItem();
+            if(!$collectionItem->isEmpty()) {
+               $collectionItem->delete();
+            }
+            $successMessage =  Mage::helper('a2_giftregistry')->__('Gift registry has been succesfully deleted.');
+            Mage::getSingleton('core/session')->addSuccess($successMessage);
+            $this->_redirectReferer();
+        } catch (Mage_Core_Exception $e) {
+            Mage::getSingleton('core/session')->addError($e->getMessage());
+            $this->_redirectReferer();
+        }
+    }
+
     public function newAction()
     {
         $this->loadLayout();
@@ -101,12 +124,12 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
                     $collectionData = $item->getCollection()
                         ->addFieldToFilter('product_id', $data['product_id'])
                         ->addFieldToFilter('registry_id', $registryId)
-                        ->getData();                    
+                        ->getData();
                     if(empty($collectionData)) {
                         $item->product_id = $data['product_id'];
                         $item->registry_id = $registryId;
                         $item->added_at = date('Y-m-d H:i:s', time());
-                        $item->save(); 
+                        $item->save();
                     }
                 }
                 $success = array('success' => true);

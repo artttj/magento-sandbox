@@ -1,4 +1,11 @@
 <?php $registry = Mage::registry('loaded_registry'); ?>
+<?php 
+    $customerId = $registry->getCustomerId();
+    $customer = Mage::getModel('customer/customer')
+        ->load($customerId);
+    $customerName = $customer->getFirstname() . ' ' . $customer->getLastname();
+?>
+<h5><?php echo $customerName ?></h5>
 <h3><?php echo $registry->getEventName(); ?></h3>
-<p><strong><?php $this->__('Event Date:') ?> <?php echo $registry->getEventDate(); ?></strong></p>
-<p><strong><?php $this->__('Event Location:') ?> <?php echo $registry->getEventLocation(); ?></strong></p>
+<p><strong><?php echo $this->__('Event Date:') ?> <?php echo $registry->getEventDate(); ?></strong></p>
+<p><strong><?php echo $this->__('Event Location:') ?> <?php echo $registry->getEventLocation(); ?></strong></p>
