@@ -78,10 +78,12 @@
                             <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Add to Cart')) ?>" class="button btn-cart full-width" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
                         <?php else: ?>
                             <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
-                        <?php endif; ?>                        
+                        <?php endif; ?>
                     </li>
                     <li>
-                        <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Delete')) ?>" class="button full-width btn-cart" onclick="setLocation('/giftregistry/index/deleteItem/product_id/<?php echo $_product->getId() ?>/registry_id/<?php echo $registry->getId() ?>')"><span><span><?php echo $this->__('Delete') ?></span></span></button>                              
+                        <?php if(Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+                            <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Delete')) ?>" class="button full-width btn-cart" onclick="setLocation('/giftregistry/index/deleteItem/product_id/<?php echo $_product->getId() ?>/registry_id/<?php echo $registry->getId() ?>')"><span><span><?php echo $this->__('Delete') ?></span></span></button>
+                        <?php endif; ?>
                     </li>
                 </ul>
                 </div>
