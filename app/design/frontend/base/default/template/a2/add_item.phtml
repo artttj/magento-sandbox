@@ -16,8 +16,15 @@
                 <li>
                     <label>
                         <?php if($helper->isItemInRegistry($productId, $registry->getEntityId())): ?>
-                            <?php $count++;  ?>
-                            Product in <b><?php echo $registry->getEventName(); ?></b> Gift Registry
+                            <?php 
+                                $count++;
+                                $params = array(
+                                    '_query' => array(
+                                        'registry_id' => $registry->getEntityId(),
+                                    )
+                                );
+                            ?>                        
+                            Product is in <b><a href="<?php echo Mage::getUrl('giftregistry/view/view', $params); ?>"><?php echo $registry->getEventName(); ?></b></a> Gift Registry
                         <?php else: ?>
                             <input type="checkbox" <?php echo $registry->getId(); ?> data-product-id="<?php echo $productId ?>" name="registry_id" data-id="<?php echo $registry->getEntityId(); ?>" />&nbsp;<?php echo $registry->getEventName(); ?>                            
                         <?php endif; ?>
