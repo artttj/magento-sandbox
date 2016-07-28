@@ -54,7 +54,7 @@ class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
             if(!$collectionItem->isEmpty()) {
                $collectionItem->delete();
             }
-            $successMessage =  Mage::helper('a2_giftregistry')->__('Gift registry has been succesfully deleted.');
+            $successMessage =  Mage::helper('a2_giftregistry')->__('Product has been succesfully deleted.');
             Mage::getSingleton('core/session')->addSuccess($successMessage);
             $this->_redirectReferer();
         } catch (Mage_Core_Exception $e) {
