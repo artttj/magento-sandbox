@@ -14,6 +14,7 @@
 <?php
     $_productCollection=$this->getLoadedProductCollection();
     $_helper = $this->helper('catalog/output');
+    $registry = Mage::registry('loaded_registry');
 ?>
 <?php if(!$_productCollection->count()): ?>
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
@@ -80,7 +81,7 @@
                         <?php endif; ?>                        
                     </li>
                     <li>
-                        <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Delete')) ?>" class="button full-width btn-cart" onclick=""><span><span><?php echo $this->__('Delete') ?></span></span></button>                              
+                        <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Delete')) ?>" class="button full-width btn-cart" onclick="setLocation('/giftregistry/index/deleteItem/product_id/<?php echo $_product->getId() ?>/registry_id/<?php echo $registry->getId() ?>')"><span><span><?php echo $this->__('Delete') ?></span></span></button>                              
                     </li>
                 </ul>
                 </div>
