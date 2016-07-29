@@ -5,7 +5,7 @@
         ->load($customerId);
     $customerName = $customer->getFirstname() . ' ' . $customer->getLastname();
 ?>
-<h5><?php echo $customerName ?></h5>
+<h3 style="color:#ff0000;"><?php echo $customerName ?></h3>
 <h3><?php echo $registry->getEventName(); ?></h3>
 <p><strong><?php echo $this->__('Event Date:') ?> <?php echo $registry->getEventDate(); ?></strong></p>
 <p><strong><?php echo $this->__('Event Location:') ?> <?php echo $registry->getEventLocation(); ?></strong></p>
