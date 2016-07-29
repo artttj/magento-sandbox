@@ -4,7 +4,8 @@
 */
 class A2_Giftregistry_IndexController extends Mage_Core_Controller_Front_Action
 {
-    public function preDispatch() {
+    public function preDispatch() 
+    {
         parent::preDispatch();
         if (!Mage::getSingleton('customer/session')->authenticate($this)) {
             $this->getResponse()->setRedirect(Mage::helper('customer')->getLoginUrl());
