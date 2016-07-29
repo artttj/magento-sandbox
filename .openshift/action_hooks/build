@@ -1,4 +1,3 @@
 #!/bin/bash
 
-rm -rf $OPENSHIFT_DATA_DIR/media
 cp -R $OPENSHIFT_REPO_DIR/media $OPENSHIFT_DATA_DIR
