@@ -14,6 +14,7 @@
 <?php
     $_productCollection=$this->getLoadedProductCollection();
     $_helper = $this->helper('catalog/output');
+    $helper = Mage::helper('a2_giftregistry');
     $registry = Mage::registry('loaded_registry');
 ?>
 <?php if(!$_productCollection->count()): ?>
@@ -81,7 +82,7 @@
                         <?php endif; ?>
                     </li>
                     <li>
-                        <?php if(Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+                        <?php if($helper->isRegistryOwner($registry->getCustomerId())): ?>
                             <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Delete')) ?>" class="button full-width btn-cart" onclick="setLocation('/giftregistry/index/deleteItem/product_id/<?php echo $_product->getId() ?>/registry_id/<?php echo $registry->getId() ?>')"><span><span><?php echo $this->__('Delete') ?></span></span></button>
                         <?php endif; ?>
                     </li>
