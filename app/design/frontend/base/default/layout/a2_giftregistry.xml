@@ -50,7 +50,7 @@
         <action method="addLink" translate="label title" module="customer">
             <label>My Gift Registries</label>
             <url>giftregistry/index/index</url><title>My Gift Registries</title><prepare/><urlParams/>
-            <position>40</position>
+            <position>50</position>
         </action>            
         </reference>
     </default>
