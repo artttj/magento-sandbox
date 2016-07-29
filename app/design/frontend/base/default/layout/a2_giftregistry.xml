@@ -40,8 +40,19 @@
     <customer_account>
         <!-- Mage_Review -->
         <reference name="customer_account_navigation">
-            <action method="addLink" translate="label" module="review"><name>a2_giftregistry</name><path>giftregistry/index/index</path><label>My Gift Registries</label></action>
+            <action method="addLink" translate="label" module="review"><name>a2_giftregistry</name><path>giftregistry/index/index</path><label>My Gift Registries</label>
+        </action>
         </reference>
     </customer_account>
+
+    <default>
+        <reference name="top.links">
+        <action method="addLink" translate="label title" module="customer">
+            <label>My Gift Registries</label>
+            <url>giftregistry/index/index</url><title>My Gift Registries</title><prepare/><urlParams/>
+            <position>40</position>
+        </action>            
+        </reference>
+    </default>
 
 </layout>
