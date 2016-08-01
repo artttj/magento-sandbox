@@ -40,7 +40,8 @@ class A2_Giftregistry_Block_Itemlist extends Mage_Catalog_Block_Product_List
                     $this->addModelTags($category);
                 }
             }
-            $this->_productCollection = $layer->getProductCollection()->addAttributeToFilter('entity_id', array('in' => $productIds));
+            $this->_productCollection = $layer->getProductCollection()
+                ->addAttributeToFilter('entity_id', array('in' => $productIds));
 
             $this->prepareSortableFieldsByCategory($layer->getCurrentCategory());
 

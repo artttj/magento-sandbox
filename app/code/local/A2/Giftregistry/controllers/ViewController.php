@@ -4,7 +4,7 @@
 */
 class A2_Giftregistry_ViewController extends Mage_Core_Controller_Front_Action
 {
-    public function viewAction() 
+    public function viewAction()
     {
         $registryId = $this->getRequest()->getParam('registry_id');
         if ($registryId) {
@@ -17,10 +17,9 @@ class A2_Giftregistry_ViewController extends Mage_Core_Controller_Front_Action
                     $this->_initLayoutMessages('customer/session');
                     $this->renderLayout();
                     return $this;
-                } else {
-                    $this->_forward('noroute');
-                    return $this;
                 }
+                $this->_forward('noroute');
+                return $this;
             }
         }
     }
