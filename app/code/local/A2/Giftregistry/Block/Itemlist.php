@@ -12,12 +12,17 @@ class A2_Giftregistry_Block_Itemlist extends Mage_Catalog_Block_Product_List
             $productIds[] = $item->product_id;
         }
 
-        $this->_productCollection = Mage::getModel('catalog/product')->getCollection()
+        $collection = Mage::getModel('catalog/product')->getCollection()
             ->addAttributeToSelect(Mage::getSingleton('catalog/config')->getProductAttributes())
             ->addMinimalPrice()
             ->addFinalPrice()
             ->addTaxPercents()
             ->addAttributeToFilter('entity_id', array('in' => $productIds));
+
+        Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($collection);
+        Mage::getSingleton('catalog/product_visibility')->addVisibleInCatalogFilterToCollection($collection);
+
+        $this->_productCollection = $collection;
 
         return $this->_productCollection;
     }
