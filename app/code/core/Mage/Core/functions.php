@@ -83,6 +83,14 @@ function destruct($object)
     unset($object);
 }
 
+
+/* debug output */
+function pr($value = null) {
+    echo '<pre>';
+    print_r($value);
+    echo '</pre>';
+}
+
 /**
  * Translator function
  *
