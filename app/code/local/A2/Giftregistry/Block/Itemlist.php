@@ -8,9 +8,9 @@ class A2_Giftregistry_Block_Itemlist extends Mage_Catalog_Block_Product_List
         $productIds = array();
         $itemCollection = Mage::getModel('a2_giftregistry/item')->getCollection()->addFieldToSelect('product_id')
             ->addFieldToFilter('registry_id', $registryId);
-            foreach ($itemCollection as $item) {
-                $productIds[] = $item->product_id;
-            }
+        foreach ($itemCollection as $item) {
+            $productIds[] = $item->product_id;
+        }
         if (is_null($this->_productCollection)) {
             $layer = $this->getLayer();
             /* @var $layer Mage_Catalog_Model_Layer */
