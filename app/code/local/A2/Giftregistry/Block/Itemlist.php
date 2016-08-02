@@ -12,7 +12,6 @@ class A2_Giftregistry_Block_Itemlist extends Mage_Catalog_Block_Product_List
             $productIds[] = $item->product_id;
         }
 
-
         $this->_productCollection = Mage::getModel('catalog/product')->getCollection()
             ->addAttributeToSelect(Mage::getSingleton('catalog/config')->getProductAttributes())
             ->addMinimalPrice()
