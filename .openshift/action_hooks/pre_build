@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp -R $OPENSHIFT_REPO_DIR/media $OPENSHIFT_DATA_DIR
+mv -R $OPENSHIFT_REPO_DIR/media $OPENSHIFT_DATA_DIR/media
