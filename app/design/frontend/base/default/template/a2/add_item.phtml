@@ -39,21 +39,24 @@
 </div>
 <script type="text/javascript">
     (function() {
-        var $ = jQuery;
-        $('.js-add-to-gift-registry').on('click', function(event){
+        var addToGiftRegistryBtn = document.querySelector('.js-add-to-gift-registry');
+
+        addToGiftRegistryBtn.addEventListener('click', function(event){
             event.preventDefault();
-            var checkedRegistry = $('input[name="registry_id"]:checked');
-            var registryIds = $.map(checkedRegistry, function(item){return item.getAttribute('data-id')});
+            var checkedRegistry = document.querySelectorAll('input[name="registry_id"]:checked');
+            var registryIds = [];
+            for(var index = 0, len = checkedRegistry.length; index < len; index+=1) {
+                registryIds.push(checkedRegistry[index].getAttribute('data-id'));
+            }
             if(!checkedRegistry.length) return;
-            $.ajax({
+            new Ajax.Request('/giftregistry/index/newItem', {
                 method: 'post',
-                url: '/giftregistry/index/newItem',
-                data: {
+                parameters: {
                     registry_id: registryIds.join(','),
-                    product_id: checkedRegistry.attr('data-product-id')
+                    product_id: checkedRegistry[0].getAttribute('data-product-id')
                 },
-                success: function(data) {
-                    if(data.success) {
+                onSuccess: function(response) {
+                    if(response.status == 200) {
                         window.location.reload();
                     }
                 }
