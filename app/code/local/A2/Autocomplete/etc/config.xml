@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <A2_Autocomplete>
+            <version>0.1.0</version>
+        </A2_Autocomplete>
+    </modules>
+    <global>
+        <blocks>
+            <a2_autocomplete>
+                <class>A2_Autocomplete_Block</class>
+            </a2_autocomplete>
+        </blocks>
+        <helpers>
+            <a2_autocomplete>
+                <class>A2_Autocomplete_Helper</class>
+            </a2_autocomplete>
+        </helpers>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <a2_autocomplete module="a2_autocomplete">
+                    <file>a2_autocomplete.xml</file>
+                </a2_autocomplete>
+            </updates>
+        </layout>        
+        <routers>
+            <a2_autocomplete>
+                <use>standard</use>
+                <args>
+                    <module>A2_Autocomplete</module>
+                    <frontName>autocomplete</frontName>
+                </args>
+            </a2_autocomplete>
+        </routers>
+    </frontend>
+</config>
