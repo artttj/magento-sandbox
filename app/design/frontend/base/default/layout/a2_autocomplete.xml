@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <block type="A2_Autocomplete_Block_Jsinit" name="a2_autocomplete_jsinit"></block>
+        </reference>
+    </default>
+</layout>
